@@ -3,19 +3,26 @@ package BackEndPart;
 import Gui.MainPanel;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Department extends Organization {
+public class Department implements Serializable {
     private Employee manager;
     private String id;
     private  int numberOfEmployees;
     private String name;
-    private HashMap<String ,Employee> employees;
+    private HashMap<String , Employee> employees = new HashMap<>();
 
     public Department() {
+    }
 
+    public Department(Employee manager, String id, int numberOfEmployees, String name) {
+        this.manager = manager;
+        this.id = id;
+        this.numberOfEmployees = numberOfEmployees;
+        this.name = name;
     }
 
     public void addEmployee(Employee employee) {

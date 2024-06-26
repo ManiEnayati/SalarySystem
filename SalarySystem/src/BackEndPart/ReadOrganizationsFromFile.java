@@ -3,6 +3,7 @@ package BackEndPart;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,11 +20,11 @@ public class ReadOrganizationsFromFile {
                 String id = reader.readLine();
                 reader.readLine();
 
-                Department department = new Department();
-                department.setName(name);
-                department.setId(id);
+                Organization organization = new Organization();
+                organization.setName(name);
+                organization.setId(id);
 
-                organizations.put(id,department);
+                organizations.put(id,organization);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,13 +2,17 @@ package BackEndPart;
 
 
 import java.awt.event.ActionEvent;
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import Gui.*;
 
 import javax.swing.*;
 
-public class Organization {
+public class Organization implements Serializable {
+
+    private static List<Organization> organizations;
 
     FileController addDepartment ;
     private String id;
@@ -45,5 +49,17 @@ public class Organization {
             }
         }
         return null;
+    }
+
+    public static List<Organization> getOrganizations() {
+        return organizations;
+    }
+
+    public static void setOrganizations(List<Organization> organizations) {
+        Organization.organizations = organizations;
+    }
+
+    public static void addOrganization(Organization organization) {
+        organizations.add(organization);
     }
 }

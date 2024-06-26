@@ -1,13 +1,15 @@
 package BackEndPart;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Employee extends Department {
+public class Employee implements Serializable {
     private String id;
     private String firstName;
     private String lastName;
@@ -20,17 +22,18 @@ public class Employee extends Department {
     private String department;
     private String salaryType;
 
-    private HashMap salaries;
+    private HashMap<Integer, Salary> salaries;
     private boolean isManager;
     private Activity currentStatus;
-    private ArrayList statusHistory;
+    private ArrayList<Activity> statusHistory;
 
-    @Override
+    public Employee() {
+    }
+
     public String getId() {
         return id;
     }
 
-    @Override
     public void setId(String id) {
         this.id = id;
     }
@@ -115,7 +118,7 @@ public class Employee extends Department {
         this.salaryType = salaryTypes;
     }
 
-    public HashMap getSalaries() {
+    public HashMap<Integer, Salary> getSalaries() {
         return salaries;
     }
 
@@ -139,7 +142,7 @@ public class Employee extends Department {
         this.currentStatus = currentStatus;
     }
 
-    public ArrayList getStatusHistory() {
+    public ArrayList<Activity> getStatusHistory() {
         return statusHistory;
     }
 
